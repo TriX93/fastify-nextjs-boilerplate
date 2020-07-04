@@ -27,6 +27,12 @@ const prepare = async () => {
             reply.sent = true
         })
     })
+
+    fastify.get('/hello', (req, reply) => {
+        const {username} = req.query;
+        reply.send({ hello: username })
+    })
+
     console.log("Next.js is ready!");
     return Promise.resolve();
 }
